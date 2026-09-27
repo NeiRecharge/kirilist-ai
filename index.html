@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="KiriList AI helps Kiribati sellers create better listings, estimate price, and improve trust with clearer local delivery plans." />
+    <title>KiriList AI | Kiribati Marketplace Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container">
+        <div class="brand">
+          <span class="brand-mark">K</span>
+          <span>KiriList AI</span>
+        </div>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#tool">Listing Builder</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <a href="#tool" class="nav-button">Try demo</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-copy">
+          <span class="eyebrow">Built for Kiribati market growth</span>
+          <h1>Turn everyday items into better local sales listings.</h1>
+          <p>
+            KiriList AI helps sellers write stronger ads, price items with local context,
+            and reduce buyer doubt before the sale is made.
+          </p>
+          <div class="hero-actions">
+            <a href="#tool" class="primary-button">Build a listing</a>
+            <a href="#features" class="secondary-button">See features</a>
+          </div>
+          <ul class="hero-metrics">
+            <li><strong>Fast</strong><span>Listing in under 1 minute</span></li>
+            <li><strong>Local</strong><span>Built for island logistics</span></li>
+            <li><strong>Trust-first</strong><span>Clear and transparent messaging</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="feature-card floating-card card-one">
+            <span class="mini-label">Suggested price</span>
+            <strong>AUD 420</strong>
+            <small>Based on condition + island demand</small>
+          </div>
+          <div class="feature-card floating-card card-two">
+            <span class="mini-label">Best selling point</span>
+            <strong>Low-risk local pickup</strong>
+            <small>Clear inspection window</small>
+          </div>
+          <div class="dashboard-card">
+            <div class="panel-head">
+              <span>Marketplace score</span>
+              <span class="score-pill">92%</span>
+            </div>
+            <div class="bars">
+              <span style="height: 40%"></span>
+              <span style="height: 56%"></span>
+              <span style="height: 68%"></span>
+              <span style="height: 88%"></span>
+              <span style="height: 96%"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features container">
+        <div class="section-heading">
+          <span class="eyebrow">Why this works</span>
+          <h2>Designed for local marketplaces and island logistics.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="info-card">
+            <div class="icon">✦</div>
+            <h3>Better copy</h3>
+            <p>Generate stronger, more trustworthy listing descriptions that match real buyer behavior.</p>
+          </article>
+          <article class="info-card">
+            <div class="icon">₳</div>
+            <h3>Smarter pricing</h3>
+            <p>Estimate value using category, condition, age, and local buying demand.</p>
+          </article>
+          <article class="info-card">
+            <div class="icon">⇄</div>
+            <h3>Delivery clarity</h3>
+            <p>Recommend pickup, island freight, or courier options that reduce confusion and delays.</p>
+          </article>
+          <article class="info-card">
+            <div class="icon">✓</div>
+            <h3>Trust-building</h3>
+            <p>Highlight the details buyers want to see before they contact you.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="dashboard" class="dashboard container">
+        <div class="section-heading">
+          <span class="eyebrow">Seller dashboard</span>
+          <h2>Keep your listings, sales, and routes in one place.</h2>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span>Active listings</span>
+            <strong id="statListings">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Avg. price</span>
+            <strong id="statAveragePrice">AUD 0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Routes saved</span>
+            <strong id="statRoutes">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Pickup rate</span>
+            <strong id="statPickupRate">0%</strong>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="table-card">
+            <div class="table-header">
+              <h3>Recent listings</h3>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Location</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody id="recentListingsTable"></tbody>
+            </table>
+          </div>
+
+          <div class="table-card">
+            <div class="table-header">
+              <h3>Recent routes</h3>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Route</th>
+                  <th>Method</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="recentRoutesTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="tool" class="tool-shell">
+        <div class="container tool-layout">
+          <div class="tool-panel form-panel">
+            <div class="panel-title-row">
+              <div>
+                <span class="eyebrow">Marketplace builder</span>
+                <h2>Create a listing</h2>
+              </div>
+              <span id="marketPulse" class="status-badge">Ready to sell</span>
+            </div>
+
+            <form id="listingForm">
+              <div class="field-group">
+                <label for="productName">Product name</label>
+                <input id="productName" type="text" value="Used refrigerator" required />
+              </div>
+
+              <div class="split-grid">
+                <div class="field-group">
+                  <label for="category">Category</label>
+                  <select id="category">
+                    <option>Home & Living</option>
+                    <option selected>Electronics</option>
+                    <option>Vehicles</option>
+                    <option>Agriculture</option>
+                    <option>Fashion</option>
+                    <option>Services</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <label for="condition">Condition</label>
+                  <select id="condition">
+                    <option>New</option>
+                    <option selected>Like new</option>
+                    <option>Good</option>
+                    <option>Fair</option>
+                    <option>Needs repair</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="split-grid">
+                <div class="field-group">
+                  <label for="location">Island / location</label>
+                  <select id="location">
+                    <option selected>South Tarawa</option>
+                    <option>Tarawa</option>
+                    <option>Betio</option>
+                    <option>Kiritimati</option>
+                    <option>Outer island</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <label for="targetPrice">Seller goal (AUD)</label>
+                  <input id="targetPrice" type="number" value="420" min="1" />
+                </div>
+              </div>
+
+              <div class="split-grid">
+                <div class="field-group">
+                  <label for="age">Item age</label>
+                  <select id="age">
+                    <option>0-6 months</option>
+                    <option>6-18 months</option>
+                    <option selected>18-36 months</option>
+                    <option>3+ years</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <label for="delivery">Delivery preferred</label>
+                  <select id="delivery">
+                    <option>Pickup only</option>
+                    <option selected>Local delivery</option>
+                    <option>Island freight</option>
+                    <option>Courier or boat</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="notes">Extra details</label>
+                <textarea id="notes" rows="4">Works perfectly, no scratches, pickup available in Bairiki, price negotiable within reason.</textarea>
+              </div>
+
+              <div class="button-row">
+                <button type="submit" class="primary-button">Generate listing</button>
+                <button type="button" id="loadSample" class="secondary-button ghost-button">Load sample</button>
+              </div>
+
+              <div id="submitStatus" class="submit-status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <aside class="tool-panel result-panel">
+            <div class="result-head">
+              <h3>Generated ad</h3>
+            </div>
+
+            <div class="output-box">
+              <span class="label">Title</span>
+              <h4 id="listingTitle">Used refrigerator in South Tarawa</h4>
+            </div>
+
+            <div class="output-box">
+              <span class="label">Description</span>
+              <p id="listingDescription"></p>
+            </div>
+
+            <div class="summary-grid">
+              <div class="metric-box">
+                <span class="label">Suggested price</span>
+                <strong id="suggestedPrice">AUD 0</strong>
+              </div>
+              <div class="metric-box">
+                <span class="label">Best angle</span>
+                <p id="sellingAngle"></p>
+              </div>
+            </div>
+
+            <div class="output-box">
+              <span class="label">Delivery plan</span>
+              <p id="deliveryPlan"></p>
+            </div>
+
+            <div class="output-box">
+              <span class="label">Trust notes</span>
+              <ul id="trustNotes" class="checklist"></ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing container">
+        <div class="section-heading">
+          <span class="eyebrow">Deployment-ready</span>
+          <h2>Front end on GitHub Pages, backend on Google Apps Script.</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card emphasis">
+            <span class="plan-tag">Frontend</span>
+            <h3>GitHub Pages</h3>
+            <p>Fast static site hosting with custom domain support and zero server costs.</p>
+          </div>
+          <div class="pricing-card">
+            <span class="plan-tag">Backend</span>
+            <h3>Apps Script</h3>
+            <p>Simple API layer to save listings, process forms, and trigger AI or spreadsheet logic.</p>
+          </div>
+          <div class="pricing-card">
+            <span class="plan-tag">Data</span>
+            <h3>Sheets + Forms</h3>
+            <p>Store leads, pricing suggestions, and marketplace leads in Google Sheets.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="logistics" class="logistics container">
+        <div class="section-heading">
+          <span class="eyebrow">KiriLogistics</span>
+          <h2>Estimate island shipping before you list an item.</h2>
+        </div>
+
+        <div class="logistics-grid">
+          <div class="tool-panel logistics-form-panel">
+            <form id="shippingForm">
+              <div class="split-grid">
+                <div class="field-group">
+                  <label for="fromIsland">From</label>
+                  <select id="fromIsland">
+                    <option selected>South Tarawa</option>
+                    <option>Tarawa</option>
+                    <option>Betio</option>
+                    <option>Kiritimati</option>
+                    <option>Outer island</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <label for="toIsland">To</label>
+                  <select id="toIsland">
+                    <option>South Tarawa</option>
+                    <option selected>Betio</option>
+                    <option>Tarawa</option>
+                    <option>Kiritimati</option>
+                    <option>Outer island</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="split-grid">
+                <div class="field-group">
+                  <label for="weightKg">Weight (kg)</label>
+                  <input id="weightKg" type="number" value="15" min="1" />
+                </div>
+
+                <div class="field-group">
+                  <label for="shippingMethod">Method</label>
+                  <select id="shippingMethod">
+                    <option selected>Local boat</option>
+                    <option>Freight service</option>
+                    <option>Courier</option>
+                    <option>Pickup</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="urgency">Delivery urgency</label>
+                <select id="urgency">
+                  <option selected>Standard</option>
+                  <option>Priority</option>
+                  <option>Weekend dispatch</option>
+                </select>
+              </div>
+
+              <button type="submit" class="primary-button full-width">Calculate shipping</button>
+            </form>
+          </div>
+
+          <aside class="tool-panel logistics-result-panel">
+            <div class="result-head">
+              <h3>Shipping estimate</h3>
+            </div>
+
+            <div class="output-box">
+              <span class="label">Estimated total</span>
+              <h4 id="shippingCost">AUD 0</h4>
+            </div>
+
+            <div class="output-box">
+              <span class="label">Best route</span>
+              <p id="bestRoute">Local boat with pickup confirmation.</p>
+            </div>
+
+            <div class="output-box">
+              <span class="label">Delivery notes</span>
+              <ul id="shippingNotes" class="checklist"></ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <span>KiriList AI</span>
+        <span>Kiribati-focused marketplace tools</span>
+      </div>
+    </footer>
+
+    <script>
+      window.KIRILIST_API_URL = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_WEB_APP_ID/exec';
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
